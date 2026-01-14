@@ -14,16 +14,14 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      - name: Call Dagger Function to build and publish to ghcr.io
+
+      - name: Publish
         uses: dagger/dagger-for-github@v8.2.0
         with:
-          version: "latest"
+          version: "0.19.9"
           verb: call
-          module: github.com/vito/daggerverse/go@v0.0.1
-          # args: build-and-push --registry=$DOCKER_REGISTRY --image-name=$DOCKER_IMAGE_NAME --username=$DOCKER_USERNAME --password=env://DOCKER_PASSWORD --build-context=github.com/vito/daggerverse/go
+          workdir: hello
           args: publish --source=.
           # assumes the Dagger Cloud token is in
           # a repository secret named DAGGER_CLOUD_TOKEN
           # set via the GitHub UI/CLI
-          cloud-token: dag_workshopdaggermq_ne_gZDw3pAT7EpGmSkgMjl6UGyVrNLK2PdjflLc37xY
-      
