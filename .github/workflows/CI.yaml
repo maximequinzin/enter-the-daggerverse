@@ -21,7 +21,7 @@ jobs:
           verb: call
           module: github.com/vito/daggerverse/go@v0.0.1
           # args: build-and-push --registry=$DOCKER_REGISTRY --image-name=$DOCKER_IMAGE_NAME --username=$DOCKER_USERNAME --password=env://DOCKER_PASSWORD --build-context=github.com/vito/daggerverse/go
-          args: publish --source .
+          args: publish --source=.
           # assumes the Dagger Cloud token is in
           # a repository secret named DAGGER_CLOUD_TOKEN
           # set via the GitHub UI/CLI
