@@ -21,18 +21,9 @@ jobs:
           verb: call
           module: github.com/vito/daggerverse/go@v0.0.1
           # args: build-and-push --registry=$DOCKER_REGISTRY --image-name=$DOCKER_IMAGE_NAME --username=$DOCKER_USERNAME --password=env://DOCKER_PASSWORD --build-context=github.com/vito/daggerverse/go
-          args: build-and-push --registry=$DOCKER_REGISTRY --image-name=$DOCKER_IMAGE_NAME --build-context=github.com/vito/daggerverse/go
+          args: publish --source .
           # assumes the Dagger Cloud token is in
           # a repository secret named DAGGER_CLOUD_TOKEN
           # set via the GitHub UI/CLI
           cloud-token: dag_workshopdaggermq_ne_gZDw3pAT7EpGmSkgMjl6UGyVrNLK2PdjflLc37xY
-        env:
-          DOCKER_REGISTRY: ttl.sh
-          DOCKER_IMAGE_NAME: hello-2914964@sha256:1ca540db2ff7b209489d6e1032f3e9eff8412c7777d3b38780705379ac618e14        
-          # DOCKER_REGISTRY: ghcr.io
-          # DOCKER_IMAGE_NAME: ${{ github.repository }}
-          # DOCKER_USERNAME: ${{ github.actor }}
-          # assumes the container registry password is in
-          # a repository secret named REGISTRY_PASSWORD
-          # set via the GitHub UI/CL
-          # DOCKER_PASSWORD: ${{ secrets.REGISTRY_PASSWORD }}          
+      
